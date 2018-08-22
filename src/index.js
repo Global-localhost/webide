@@ -7,7 +7,6 @@ import {
 } from 'react-router-dom';
 
 import {Ide} from './ide';
-import {Wallet} from './wallet';
 import {Store} from './store';
 
 const store = new Store();
@@ -31,13 +30,12 @@ class App extends React.Component {
       <BrowserRouter>
         <Switch>
           <Route
-            path='/ide/:programId'
+            path='/:programId'
             component={(router) => {
               return <Ide history={router.history} store={store} programId={router.match.params.programId}/>;
             }}
           />
-          <Route path='/ide' component={Ide} />
-          <Route path='/' component={() => <Wallet store={store} />} />
+          <Route path='/' component={Ide} />
         </Switch>
       </BrowserRouter>
     );
